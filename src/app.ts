@@ -16,6 +16,7 @@ import checkAdminLock from './middlewares/adminLock'
 import attachChat from './middlewares/attachChat'
 import handleHelp from './commands/handleHelp'
 import handlePrice from './commands/handlePrice'
+import handleNewMember from './handle/handleGreetings'
 
 async function runApp() {
   console.log('Starting app...')
@@ -32,6 +33,7 @@ async function runApp() {
   bot.command('price', checkAdminLock, handlePrice)
   bot.command('p', checkAdminLock, handlePrice)
 
+  bot.on(':new_chat_members', checkAdminLock, handleNewMember)
   // Errors
   bot.catch(console.error)
   // Start bot

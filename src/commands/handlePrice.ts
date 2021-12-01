@@ -8,7 +8,7 @@ export default async function handlePrice(ctx: Context) {
   const parts = ctx.update.message.text.split(' ')
 
   if (parts.length > 2) {
-    ctx.reply('Format không đúng, hãy gửi format như: BTC')
+    ctx.reply('Format không đúng, hãy gửi format như: /p BTC(no space)')
   }
 
   let fsym = coinConfig.coinDefault
@@ -25,6 +25,7 @@ export default async function handlePrice(ctx: Context) {
     {
       disable_web_page_preview: true,
       parse_mode: 'Markdown',
+      reply_to_message_id: ctx.update.message.message_id
     }
   )
   logAnswerTime(ctx, '/price')

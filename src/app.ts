@@ -33,7 +33,7 @@ async function runApp() {
   bot.command('price', checkAdminLock, handlePrice)
   bot.command('p', checkAdminLock, handlePrice)
 
-  bot.on(':new_chat_members', checkAdminLock, handleNewMember)
+  // bot.on(':new_chat_members', checkAdminLock, handleNewMember)
   // Errors
   bot.catch(console.error)
   // Start bot
